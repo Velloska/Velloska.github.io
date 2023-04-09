@@ -21,7 +21,7 @@
           total += roll;
           rolls.push(roll);
         }
-        var result = "Result: " + total + " (";
+        var result = total + " (";
         result += rolls.join("+") + ")";
         rollHistory.push(result);
         if (rollHistory.length > 5) {
