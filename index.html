@@ -9,12 +9,20 @@
   <head>
     <title>Dice Roller Widget</title>
     <script type="text/javascript">
+      var rolls = [];
       function rollDice() {
-        var die1 = Math.floor(Math.random() * 6) + 1;
-        var die2 = Math.floor(Math.random() * 6) + 1;
-        var die3 = Math.floor(Math.random() * 6) + 1;
-        var total = die1 + die2 + die3;
-        document.getElementById("result").innerHTML = "Result: " + total;
+        var numDice = parseInt(document.getElementById("num-dice").value);
+        var dieType = parseInt(document.getElementById("die-type").value);
+        var result = 0;
+        for (var i = 0; i < numDice; i++) {
+          result += Math.floor(Math.random() * dieType) + 1;
+        }
+        rolls.unshift(result);
+        if (rolls.length > 5) {
+          rolls.pop();
+        }
+        document.getElementById("result").innerHTML = "Result: " + result;
+        document.getElementById("roll-history").innerHTML = "Last 5 Rolls: " + rolls.join(", ");
       }
     </script>
     <style>
@@ -36,6 +44,10 @@
         font-size: 24px;
         font-weight: bold;
       }
+      #roll-history {
+        margin-top: 10px;
+        font-size: 16px;
+      }
       button {
         margin-top: 10px;
         font-size: 16px;
@@ -56,6 +68,25 @@
     <div id="widget">
       <h2>Dice Roller</h2>
       <div id="result"></div>
+      <div id="roll-history"></div>
+      <label for="num-dice">Number of dice:</label>
+      <select id="num-dice">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label for="die-type">Type of die:</label>
+      <select id="die-type">
+        <option value="4">d4</option>
+        <option value="6" selected>d6</option>
+        <option value="8">d8</option>
+        <option value="10">d10</option>
+        <option value="12">d12</option>
+        <option value="20">d20</option>
+      </select>
+      <br>
       <button onclick="rollDice()">Roll Dice</button>
     </div>
   </body>
