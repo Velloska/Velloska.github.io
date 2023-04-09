@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dice Roller Widget</title>
+    <script type="text/javascript">
+      function rollDice() {
+        var die1 = Math.floor(Math.random() * 6) + 1;
+        var die2 = Math.floor(Math.random() * 6) + 1;
+        var die3 = Math.floor(Math.random() * 6) + 1;
+        var total = die1 + die2 + die3;
+        document.getElementById("result").innerHTML = "Result: " + total;
+      }
+    </script>
+    <style>
+      #widget {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background-color: #f2f2f2;
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #widget h2 {
+        margin-top: 0;
+      }
+      #result {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      button {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="widget">
+      <h2>Dice Roller</h2>
+      <div id="result"></div>
+      <button onclick="rollDice()">Roll Dice</button>
+    </div>
+  </body>
+</html>
