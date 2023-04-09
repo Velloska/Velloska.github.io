@@ -1,51 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="http://velloska.github.io/widget.js"></script>
+  <meta charset="UTF-8">
+  <title>Image Gallery</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .image-box {
+      text-align: center;
+    }
+    .image-box img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px auto;
+    }
+    .caption {
+      text-align: center;
+      font-style: italic;
+    }
+    nav {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    nav a {
+      display: inline-block;
+      padding: 5px 10px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
 </head>
-  <head>
-    <meta charset="UTF-8">
-    <title>Image Gallery</title>
-    <style>
-      .image-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-      }
-      .image-container img {
-        max-width: auto;
-        height: auto;
-        margin: 10px;
-      }
-      .caption {
-        text-align: center;
-        font-style: italic;
-      }
-    </style>
-  </head>
 <body>
-	<div class="container">
-		<div class="image-box">
-			<img src="http://velloska.github.io/images/Dautha No Border.png" alt="Dautha World Map">
-			<h3>Image 1</h3>
-			<p>A world map for the planet Dautha. What hides in the eye of the Maelstrom?</p>
-		</div>
-		<div class="image-box">
-			<img src="http://velloska.github.io/images/Trestleton.png" alt="Trestleton">
-			<h3>Image 2</h3>
-			<p>A small town called Trestleton built along the main road to Gramblig.</p>
-		</div>
-		<div class="image-box">
-			<img src="image3.jpg" alt="Image 3">
-			<h3>Image 3</h3>
-			<p>This is the description for image 3.</p>
-		</div>
-		<div class="image-box">
-			<img src="image4.jpg" alt="Image 4">
-			<h3>Image 4</h3>
-			<p>This is the description for image 4.</p>
-		</div>
-	</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="container">
+    <div class="image-box">
+      <img src="http://velloska.github.io/images/Dautha No Border.png" alt="Dautha World Map" width="600">
+      <h3>Image 1</h3>
+      <p>A world map for the planet Dautha. What hides in the eye of the Maelstrom?</p>
+    </div>
+    <div class="image-box">
+      <img src="http://velloska.github.io/images/Trestleton.png" alt="Trestleton" width="600">
+      <h3>Image 2</h3>
+      <p>A small town called Trestleton built along the main road to Gramblig.</p>
+    </div>
+    <div class="image-box">
+      <img src="image3.jpg" alt="Image 3" width="600">
+      <h3>Image 3</h3>
+      <p>This is the description for image 3.</p>
+    </div>
+    <div class="image-box">
+      <img src="image4.jpg" alt="Image 4" width="600">
+      <h3>Image 4</h3>
+      <p>This is the description for image 4.</p>
+    </div>
+  </div>
 </body>
 </html>
