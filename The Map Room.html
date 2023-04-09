@@ -1,50 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Image Gallery</title>
+	<title>My Image Gallery</title>
 	<style>
-		.image-container {
-			position: relative;
-			margin-bottom: 20px;
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
 		}
-		.image-container img {
-			position: absolute;
-			top: 0;
-			left: 0;
+		.image-box {
+			margin: 20px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			background-color: #fff;
+			width: 300px;
+			height: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 		}
-		.image-container p {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			background-color: rgba(0, 0, 0, 0.5);
-			color: #fff;
-			padding: 5px;
+		.image-box img {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+		}
+		.image-box h3 {
+			margin: 10px 0;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: #333;
+		}
+		.image-box p {
 			margin: 0;
-			width: 100%;
+			font-size: 1rem;
+			color: #666;
+			line-height: 1.5;
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="image-box">
-			<img src="http://velloska.github.io/images/Trestleton.png" alt="Trestleton">
-			<p>Image 1 description</p>
+			<img src="http://velloska.github.io/images/Dautha No Border.png" alt="Dautha World Map">
+			<h3>Image 1</h3>
+			<p>A world map for the planet Dautha. What hides in the eye of the Maelstrom?</p>
 		</div>
 		<div class="image-box">
-			<img src="http://velloska.github.io/images/Dautha No Border.png" alt="Dautha World Map">
-			<p>IDautha World Map</p>
+			<img src="http://velloska.github.io/images/Trestleton.png" alt="Trestleton">
+			<h3>Image 2</h3>
+			<p>A small town called Trestleton built along the main road to Gramblig.</p>
 		</div>
 		<div class="image-box">
 			<img src="image3.jpg" alt="Image 3">
-			<p>Image 3 description</p>
+			<h3>Image 3</h3>
+			<p>This is the description for image 3.</p>
 		</div>
 		<div class="image-box">
 			<img src="image4.jpg" alt="Image 4">
-			<p>Image 4 description</p>
-		</div>
-		<div class="image-box">
-			<img src="image5.jpg" alt="Image 5">
-			<p>Image 5 description</p>
+			<h3>Image 4</h3>
+			<p>This is the description for image 4.</p>
 		</div>
 	</div>
 </body>
