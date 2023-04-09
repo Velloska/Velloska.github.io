@@ -9,20 +9,26 @@
   <head>
     <title>Dice Roller Widget</title>
     <script type="text/javascript">
-      var rolls = [];
+      var rollHistory = [];
+
       function rollDice() {
-        var numDice = parseInt(document.getElementById("num-dice").value);
-        var dieType = parseInt(document.getElementById("die-type").value);
-        var result = 0;
+        var numDice = parseInt(document.getElementById("numDice").value);
+        var dieType = parseInt(document.getElementById("dieType").value);
+        var total = 0;
+        var rolls = [];
         for (var i = 0; i < numDice; i++) {
-          result += Math.floor(Math.random() * dieType) + 1;
+          var roll = Math.floor(Math.random() * dieType) + 1;
+          total += roll;
+          rolls.push(roll);
         }
-        rolls.unshift(result);
-        if (rolls.length > 5) {
-          rolls.pop();
+        var result = "Result: " + total + " (";
+        result += rolls.join("+") + ")";
+        rollHistory.push(result);
+        if (rollHistory.length > 5) {
+          rollHistory.shift();
         }
-        document.getElementById("result").innerHTML = "Result: " + result;
-        document.getElementById("roll-history").innerHTML = "Last 5 Rolls: " + rolls.join(", ");
+        document.getElementById("result").innerHTML = result;
+        document.getElementById("history").innerHTML = "History: " + rollHistory.join(", ");
       }
     </script>
     <style>
@@ -44,9 +50,9 @@
         font-size: 24px;
         font-weight: bold;
       }
-      #roll-history {
+      #history {
+        font-size: 14px;
         margin-top: 10px;
-        font-size: 16px;
       }
       button {
         margin-top: 10px;
@@ -67,18 +73,11 @@
   <body>
     <div id="widget">
       <h2>Dice Roller</h2>
-      <div id="result"></div>
-      <div id="roll-history"></div>
-      <label for="num-dice">Number of dice:</label>
-      <select id="num-dice">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <label for="die-type">Type of die:</label>
-      <select id="die-type">
+      <label for="numDice">Number of dice:</label>
+      <input type="number" id="numDice" name="numDice" min="1" value="1">
+      <br><br>
+      <label for="dieType">Type of die:</label>
+      <select id="dieType" name="dieType">
         <option value="4">d4</option>
         <option value="6" selected>d6</option>
         <option value="8">d8</option>
@@ -86,7 +85,9 @@
         <option value="12">d12</option>
         <option value="20">d20</option>
       </select>
-      <br>
+      <br><br>
+      <div id="result"></div>
+      <div id="history"></div>
       <button onclick="rollDice()">Roll Dice</button>
     </div>
   </body>
